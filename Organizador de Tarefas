@@ -1,0 +1,17 @@
+#Diretório onde armazenos funções que podem ser reutilizadas
+from funções import titulo
+#Bibliotecas usadas.
+import os
+import shutil
+titulo("Organizador de Arquivos")
+
+origem = "D:/Teste_2"
+destino = "C:/Teste"
+os.makedirs(destino, exist_ok=True)
+
+for arquivo in os.listdir(origem):
+    if arquivo.lower().endswith(".pdf"):
+        caminho_origem = os.path.join(origem, arquivo)
+        caminhp_destino = os.path.join(destino, arquivo)
+        shutil.move(caminho_origem, caminhp_destino)
+        print(f"Movido: {arquivo} → {destino}")
